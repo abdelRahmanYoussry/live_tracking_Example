@@ -5,7 +5,10 @@ A new Flutter project.
 ## Google Live Tracking Demo With custom Marker Icon 
 
 iOS:
-![Screen Recording 2023-09-05 at 1 55 53 PM](https://github.com/dhruvil444/live_tracking_Example/assets/130270250/40a4d586-1932-4f19-b961-3d37a31f027f)
+
+
+https://github.com/dhruvil444/live_tracking_Example/assets/130270250/c3b0bb7c-a340-4f05-8f73-e0eff0a37ef0
+
 
 
 Android:
