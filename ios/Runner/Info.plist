@@ -47,5 +47,11 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>outdoorhunting app access to current location is required to show on map</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>outdoorhunting app needs access to location when in the background.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>To get location and direction</string>
 </dict>
 </plist>

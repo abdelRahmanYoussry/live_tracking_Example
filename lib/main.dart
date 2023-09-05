@@ -62,10 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
     debugPrint('1.....................................');
 
     PolylineResult result = await polylinePoints
-        .getRouteBetweenCoordinates(
-            googleApiKey,
-            PointLatLng(sourceLocation.latitude, sourceLocation.longitude),
-            PointLatLng(destination.latitude, destination.longitude))
+        .getRouteBetweenCoordinates(googleApiKey, PointLatLng(sourceLocation.latitude, sourceLocation.longitude), PointLatLng(destination.latitude, destination.longitude))
         .catchError((error) {
       debugPrint('This is how is Error.....................................');
       debugPrint(error.toString());
@@ -95,16 +92,13 @@ class _MyHomePageState extends State<MyHomePage> {
     }).catchError((error) {
       debugPrint('$error   New Error2');
     });
-    GoogleMapController googleMapController =
-        await _completer.future.catchError((error) {
+    GoogleMapController googleMapController = await _completer.future.catchError((error) {
       debugPrint('$error   New Error');
     });
 
     location.onLocationChanged.listen((newLoc) {
       currentLocation = newLoc;
-      googleMapController.animateCamera(CameraUpdate.newCameraPosition(
-          CameraPosition(
-              zoom: 16, target: LatLng(newLoc.latitude!, newLoc.longitude!))));
+      googleMapController.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(zoom: 16, target: LatLng(newLoc.latitude!, newLoc.longitude!))));
       setState(() {});
     });
   }
@@ -123,9 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
       targetWidth: width,
     );
     ui.FrameInfo fi = await codec.getNextFrame();
-    return (await fi.image.toByteData(format: ui.ImageByteFormat.png))!
-        .buffer
-        .asUint8List();
+    return (await fi.image.toByteData(format: ui.ImageByteFormat.png))!.buffer.asUint8List();
   }
 
   @override
@@ -146,28 +138,18 @@ class _MyHomePageState extends State<MyHomePage> {
         child: currentLocation != null && markerIcon != null
             ? GoogleMap(
                 initialCameraPosition: CameraPosition(
-                  target: LatLng(
-                      currentLocation!.latitude!, currentLocation!.longitude!),
+                  target: LatLng(currentLocation!.latitude!, currentLocation!.longitude!),
                   zoom: 16,
                 ),
-                polylines: {
-                  Polyline(
-                      polylineId: const PolylineId('route'),
-                      points: polyLineCoordinates,
-                      color: Colors.red,
-                      width: 6)
-                },
+                polylines: {Polyline(polylineId: const PolylineId('route'), points: polyLineCoordinates, color: Colors.red, width: 6)},
                 markers: {
-                  const Marker(
-                      markerId: MarkerId('MomHome'), position: sourceLocation),
-                  const Marker(
-                      markerId: MarkerId('Fasel'), position: destination),
+                  const Marker(markerId: MarkerId('MomHome'), position: sourceLocation),
+                  const Marker(markerId: MarkerId('Fasel'), position: destination),
                   Marker(
                       markerId: const MarkerId('CurrentLocation'),
                       visible: true,
                       icon: BitmapDescriptor.fromBytes(markerIcon!),
-                      position: LatLng(currentLocation!.latitude!,
-                          currentLocation!.longitude!)),
+                      position: LatLng(currentLocation!.latitude!, currentLocation!.longitude!)),
                 },
                 onMapCreated: (con) {
                   _completer.complete(con);
