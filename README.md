@@ -4,7 +4,11 @@ A new Flutter project.
 
 ## Google Live Tracking Demo With custom Marker Icon 
 
+iOS:
+https://github.com/dhruvil444/live_tracking_Example/assets/130270250/8e3483ff-a101-44e6-9f2e-003d641a66e4
 
+
+Android:
 https://github.com/abdelRahmanYoussry/live_tracking_Example/assets/92960112/a4c3aaa1-839e-4ffc-8652-7bbd8f694cb9
 
 
